@@ -57,7 +57,9 @@ Instead, a **fit score** is created using text similarity and recruiter feedback
 
 ### Re-Ranking After Feedback
 The updated fit score is computed as:
+80% keyword relevance
 
+20% similarity to the starred candidate
 
 This keeps role relevance as the main signal while allowing feedback to guide the ranking.
 
