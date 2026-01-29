@@ -57,3 +57,58 @@ Instead, a **fit score** is created using text similarity and recruiter feedback
 
 ### Re-Ranking After Feedback
 The updated fit score is computed as:
+
+
+This keeps role relevance as the main signal while allowing feedback to guide the ranking.
+
+---
+
+## Evaluation Strategy
+Because true labels are not available, evaluation focuses on ranking behavior:
+- Average similarity of top-10 candidates to the starred profile increases
+- Keyword relevance remains mostly stable after re-ranking
+- More candidates similar to the starred profile appear in the top results
+
+These results show that the ranking improves after feedback without overfitting.
+
+---
+
+## Cut-Off Strategy
+- A Top-K approach is used (K = 50)
+- This size is practical for recruiter review
+- It works consistently across different roles without hiding strong candidates
+
+---
+
+## Bias Considerations
+- Recruiter feedback is used as a soft signal (20% weight)
+- Humans remain in control of decisions
+- No sensitive personal attributes are used
+- Feedback influence is capped to reduce bias amplification
+
+---
+
+## Technologies Used
+- Python  
+- pandas  
+- scikit-learn  
+- TF-IDF  
+- Cosine similarity  
+- Jupyter Notebook  
+
+---
+
+## How to Run
+1. Clone the repository  
+2. Install dependencies from `requirements.txt`  
+3. Open and run `candidate_ranking.ipynb`  
+
+---
+
+## Summary
+This project demonstrates a **human-in-the-loop candidate ranking system** that:
+- Ranks candidates using text similarity
+- Learns from recruiter feedback
+- Improves ranking quality over time
+- Remains simple, transparent, and explainable
+
